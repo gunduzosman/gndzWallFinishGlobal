@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>WallFinishGlobal</AssemblyName>
+    <RootNamespace>WallFinishGlobal</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RevitAPI"><HintPath>$(RevitApiDir)\RevitAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="RevitAPIUI"><HintPath>$(RevitApiDir)\RevitAPIUI.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckRevitApiReferences" BeforeTargets="ResolveReferences" Condition="!Exists('$(RevitApiDir)\RevitAPI.dll')">
+    <Error Text="Revit 2025 API not found at '$(RevitApiDir)'. Install Revit 2025 or pass /p:RevitApiDir=&quot;...&quot;. Build the installer project independently if needed." />
+  </Target>
+  <ItemGroup>
+    <None Update="Resources\finish-rules.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

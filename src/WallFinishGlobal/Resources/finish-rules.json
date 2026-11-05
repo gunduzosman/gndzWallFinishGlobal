@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "variantNaming": { "prefix": "ORJ", "separator": "__" },
+  "matching": { "roomTypeParameterName": "FinishRoomType", "fallbackToRoomName": true, "nameMatchMode": "wildcard" },
+  "rules": [
+    { "code": "ISLAK_SERAMIK", "priority": 100, "match": { "roomTypesAnyOf": ["ISLAK", "MUTFAK"], "excludeRoomTypesAnyOf": [], "levels": [], "wallTypesAnyOf": [] }, "finish": { "finishCode": "SRM-01", "materialName": "Seramik 30x60", "thicknessMm": 10 } },
+    { "code": "KURU_SIVA", "priority": 50, "match": { "roomTypesAnyOf": ["*"], "excludeRoomTypesAnyOf": ["ISLAK", "MUTFAK"], "levels": [], "wallTypesAnyOf": [] }, "finish": { "finishCode": "ALC-01", "materialName": "Alçı Sıva", "thicknessMm": null } }
+  ],
+  "conflictPolicy": "warnAndSkip"
+}
